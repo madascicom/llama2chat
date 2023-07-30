@@ -1,15 +1,20 @@
 import streamlit as st
 from llamaapi import LlamaAPI
-import json
-import os
+
+
+Llama_API_Token = st.secrets['Llama_API_Token']
+llama = LlamaAPI('Llama_API_Token')
+
 
 # App title
 st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 
-st.title('🦙 Llama Chat Test')
 
 
-
+# Replicate Credentials
+with st.sidebar:
+    st.title('🦙💬 Llama 2 Chatbot')
+  
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
